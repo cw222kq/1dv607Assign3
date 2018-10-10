@@ -24,7 +24,7 @@ public class SimpleView implements IView
           }
         }
 
-        public void DisplayCard(model.Card a_card)
+        public void DisplayCard(model.Card a_card) // hämtar värderna och färgerna från Card klassen
         {
             System.out.println("" + a_card.GetValue() + " of " + a_card.GetColor());
         }

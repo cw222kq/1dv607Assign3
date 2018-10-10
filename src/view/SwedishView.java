@@ -26,7 +26,7 @@ public class SwedishView implements IView
           }
         }
         
-        public void DisplayCard(model.Card a_card)
+        public void DisplayCard(model.Card a_card) // denna metod ‰r den enda som skiljer sig i mer ‰n sprÂket pga att vi skapar tvÂ arrayer h‰r i simpleview anv‰nder vi oss av dem skapade korten i cardklassen
         {
             if (a_card.GetColor() == model.Card.Color.Hidden)
             {
@@ -34,10 +34,10 @@ public class SwedishView implements IView
             }
             else
             {
-                String colors[] = 
-                    { "Hj√§rter", "Spader", "Ruter", "Kl√∂ver" };
-                String values[] =  
-                    { "tv√•", "tre", "fyra", "fem", "sex", "sju", "√•tta", "nio", "tio", "knekt", "dam", "kung", "ess" };
+                String colors[] = // skapar en array  med f‰rger
+                    { "Hj√§rter", "Spader", "Ruter", "Kl√∂ver" }; 
+                String values[] =  // skapar en array med v‰rden
+                    { "tv√•", "tre", "fyra", "fem", "sex", "sju", "√•tta", "nio", "tio", "knekt", "dam", "kung", "ess" }; 
                 System.out.println("" + colors[a_card.GetColor().ordinal()] + " " + values[a_card.GetValue().ordinal()]);
             }
         }

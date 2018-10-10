@@ -38,7 +38,7 @@ public class Card {
     m_color = a_color;
     m_isHidden = true;
   }
-  
+  // gettar color om den inte är hidden
   public Color GetColor() {
       if (m_isHidden)
       {
@@ -46,7 +46,7 @@ public class Card {
       }
       return m_color;
   }
-
+ // gettar value om den inte är hidden
   public Value GetValue() {
       if (m_isHidden)
       {

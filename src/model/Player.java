@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class Player {
 
-  private List<Card> m_hand;
+  private List<Card> m_hand; // motsvarar spelarens hand
   protected final int g_maxScore = 21;
 
   public Player()
@@ -17,7 +17,7 @@ public class Player {
   
   public void DealCard(Card a_addToHand)
   {
-    m_hand.add(a_addToHand);
+    m_hand.add(a_addToHand); //add metoden en färdig metod i listklassen. Lägger till ett kort till spelarens hand
   }
   
   public Iterable<Card> GetHand()
@@ -27,12 +27,12 @@ public class Player {
   
   public void ClearHand()
   {
-    m_hand.clear();
+    m_hand.clear(); // clear metoden en färdig metod i listklassen
   }
   
   public void ShowHand()
   {
-    for(Card c : m_hand)
+    for(Card c : m_hand) // foreach typ java stylish
     {
       c.Show(true);
     }
@@ -40,7 +40,7 @@ public class Player {
   
   public int CalcScore()
   {
-    // the number of scores is dependant on the number of scorable values
+    // the number of scores is dependent on the number of scorable values
     // as it seems there is no way to do this check at compile time in java ?!
     // cardScores[13] = {...};
     int cardScores[] = {
@@ -48,7 +48,7 @@ public class Player {
     };
     assert (cardScores.length == Card.Value.Count.ordinal()) : "Card Scores array size does not match number of card values";
   
-    
+    // ordinal verkar fungera lite som array.length() kollar alltså hur många värden som finns på value ovan
     int score = 0;
 
     for(Card c : GetHand()) {
@@ -62,7 +62,7 @@ public class Player {
     {
         for(Card c : GetHand())
         {
-            if (c.GetValue() == Card.Value.Ace && score > g_maxScore)
+            if (c.GetValue() == Card.Value.Ace && score > g_maxScore) // räknar om värdet vid ess och över maxpoäng blir ess värd ett
             {
                 score -= 10;
             }

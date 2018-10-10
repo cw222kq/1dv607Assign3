@@ -13,13 +13,11 @@ public class Dealer extends Player {
     m_newGameRule = a_rulesFactory.GetNewGameRule();
     m_hitRule = a_rulesFactory.GetHitRule();
     
-    /*for(Card c : m_deck.GetCards()) {
+    /*for(Card c : m_deck.GetCards()) { BORT KOMMENTERAT AV DEM I ORGINALVERSIONEN
       c.Show(true);
       System.out.println("" + c.GetValue() + " of " + c.GetColor());
     }    */
   }
-  
-  
   public boolean NewGame(Player a_player) {
     if (m_deck == null || IsGameOver()) {
       m_deck = new Deck();
@@ -40,6 +38,23 @@ public class Dealer extends Player {
       return true;
     }
     return false;
+  }
+  // metod tillagd av mig (efter försök att tolka sekvensdiagrammet) ingen aning om detta är rätt eller om metoden ens ska ligga här
+  public boolean Stand(){
+	  if(m_deck != null){
+		  ShowHand();
+		  for(Card c : GetHand()){
+			  c.Show(true);
+		  }
+		  while(m_hitRule.DoHit(this)){
+			  m_hitRule.DoHit(this);
+			  Card c = m_deck.GetCard();
+			  c.Show(true);
+			  DealCard(c);
+		  }
+		  return true;  
+	  }
+	  return false;
   }
 
   public boolean IsDealerWinner(Player a_player) {
