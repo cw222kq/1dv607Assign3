@@ -8,7 +8,7 @@ public class Game { // jag tror att den här klassen fungerar som en facade för p
 
   public Game()
   {
-    m_dealer = new Dealer(new model.rules.RulesFactory()); //skapar upp en ny instans av rulesfactory
+    m_dealer = new Dealer(new model.rules.RulesFactory()); //skapar upp en ny instans av rulesfactory dependency injection
     m_player = new Player();
   }
     
@@ -32,16 +32,10 @@ public class Game { // jag tror att den här klassen fungerar som en facade för p
   {
     return m_dealer.Hit(m_player);
   }
-  // fanns från början
- /* public boolean Stand()
-  {
-    // TODO: Implement this according to Game_Stand.sequencediagram
-    return true;
-  }*/
-  // det jag försökt lägga till ingen aning om detta är rätt eftersom jag inte förstår sekvensdiagrammet helt ut
+ 
+  // Added by me
   public boolean Stand()
   {
-    // TODO: Implement this according to Game_Stand.sequencediagram
     return m_dealer.Stand();
   }
   

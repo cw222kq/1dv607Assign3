@@ -40,9 +40,10 @@ public class Player {
   
   public int CalcScore()
   {
-    // the number of scores is dependent on the number of scorable values
+    // the number of scores is dependent on the number of scorable values 
     // as it seems there is no way to do this check at compile time in java ?!
     // cardScores[13] = {...};
+	  // om vi lägga till ett nytt typ av kort så går koden sönder för det finns ett dolt dependency (hidden dependency ~26:00 del 1 L:08)
     int cardScores[] = {
         2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ,10 ,10, 11
     };
@@ -62,7 +63,7 @@ public class Player {
     {
         for(Card c : GetHand())
         {
-            if (c.GetValue() == Card.Value.Ace && score > g_maxScore) // räknar om värdet vid ess och över maxpoäng blir ess värd ett
+            if (c.GetValue() == Card.Value.Ace && score > g_maxScore) // räknar om värdet vid ess och över maxpoäng (FINNS I PLAYER HÖGST UPP) blir ess värd ett
             {
                 score -= 10;
             }
@@ -71,4 +72,16 @@ public class Player {
 
     return score;
   }
+  
+  // Added by me
+  public boolean hasAce(){
+	  for(Card c : GetHand()) {
+	        if (c.GetValue() == Card.Value.Ace)
+	        {
+	           return true;
+	        }
+	  }
+	  return false;
+  }  
+  
 }

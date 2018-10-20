@@ -11,7 +11,7 @@ public class Program
   {
   
     Game g = new Game();
-    IView v = new SimpleView(); //new SwedishView();
+    IView v = new SimpleView(); //new SwedishView(); Kolla L:10 del 1 ~21:23
     PlayGame ctrl = new PlayGame();
     
     while (ctrl.Play(g, v));

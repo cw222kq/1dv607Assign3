@@ -1,18 +1,19 @@
 package view;
 
-public class SwedishView implements IView 
+public class SwedishView extends View implements IView 
     {
         public void DisplayWelcomeMessage()
         {
          
             for(int i = 0; i < 50; i++) {System.out.print("\n");};
 
-            System.out.println("Hej Black Jack VÃ¤rlden");
+            System.out.println("Hej Black Jack Världen");
             System.out.println("----------------------");
-            System.out.println("Skriv 'p' fÃ¶r att Spela, 'h' fÃ¶r nytt kort, 's' fÃ¶r att stanna 'q' fÃ¶r att avsluta\n");
+            System.out.println("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n"); 
         }
-        
-        public int GetInput()
+        // Those methods are the same in both simpleview and swedishview which indicate that I can use inherit instead
+  		//Removed from origin code 
+       /* public int GetInput()
         {
           try {
             int c = System.in.read();
@@ -24,7 +25,7 @@ public class SwedishView implements IView
             System.out.println("" + e);
             return 0;
           }
-        }
+        }*/
         
         public void DisplayCard(model.Card a_card) // denna metod är den enda som skiljer sig i mer än språket pga att vi skapar två arrayer här i simpleview använder vi oss av dem skapade korten i cardklassen
         {
@@ -35,9 +36,9 @@ public class SwedishView implements IView
             else
             {
                 String colors[] = // skapar en array  med färger
-                    { "HjÃ¤rter", "Spader", "Ruter", "KlÃ¶ver" }; 
+                    { "Hjärter", "Spader", "Ruter", "Klöver" }; 
                 String values[] =  // skapar en array med värden
-                    { "tvÃ¥", "tre", "fyra", "fem", "sex", "sju", "Ã¥tta", "nio", "tio", "knekt", "dam", "kung", "ess" }; 
+                    { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio", "knekt", "dam", "kung", "ess" }; 
                 System.out.println("" + colors[a_card.GetColor().ordinal()] + " " + values[a_card.GetValue().ordinal()]);
             }
         }
@@ -69,7 +70,8 @@ public class SwedishView implements IView
             {
                 DisplayCard(c);
             }
-            System.out.println("PoÃ¤ng: " + a_score);
+            System.out.println("Poäng: " + a_score);
             System.out.println("");
         }
-    }
+    }       
+

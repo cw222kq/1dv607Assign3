@@ -1,6 +1,6 @@
 package view;
 
-public class SimpleView implements IView 
+public class SimpleView extends View implements IView 
 {
 
   public void DisplayWelcomeMessage()
@@ -9,8 +9,9 @@ public class SimpleView implements IView
           System.out.println("Hello Black Jack World");
           System.out.println("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
         }
-
-        public int GetInput()
+  		// Those methods are the same in both simpleview and swedishview which indicate that I can use inherit instead
+  		//Removed from origin code
+     /*   public int GetInput()
         {
           try {
             int c = System.in.read();
@@ -22,7 +23,7 @@ public class SimpleView implements IView
             System.out.println("" + e);
             return 0;
           }
-        }
+        }*/
 
         public void DisplayCard(model.Card a_card) // hämtar värderna och färgerna från Card klassen
         {
@@ -63,4 +64,5 @@ public class SimpleView implements IView
             }
             
         }
+		
     }
