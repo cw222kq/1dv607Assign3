@@ -10,5 +10,5 @@ import model.Player;
  *
  */
 public interface IWinsGameStrategy {
-	 public boolean IsDealerWinner(Player a_player, Player a_dealer);
+	 boolean IsDealerWinner(Player a_player, Player a_dealer);
 }

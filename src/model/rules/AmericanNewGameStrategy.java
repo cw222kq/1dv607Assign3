@@ -1,15 +1,26 @@
 package model.rules;
 
-import model.Deck;
 import model.Dealer;
 import model.Player;
-import model.Card;  
-
+ 
 class AmericanNewGameStrategy implements INewGameStrategy {	// dealern och spelaren får ett extra kort. sista kortet för dealern är dolt
-// går att göra dealer privat om man kör player istället för dealer här (når dealer via player)
-  public boolean NewGame(Deck a_deck, Dealer a_dealer, Player a_player) {
-    Card c;
 
+  public boolean NewGame(Dealer a_dealer, Player a_player) { //Removed the Deck argument	
+    
+	// Added by me (code duplication, point 5 in changes.txt)
+	a_dealer.getCardAndGiveToPlayer(a_player, true);
+	
+	a_dealer.getCardAndGiveToPlayer(a_dealer, true);
+	
+	a_dealer.getCardAndGiveToPlayer(a_player, true);
+	
+	a_dealer.getCardAndGiveToPlayer(a_dealer, false);
+	
+    
+    
+    // Removed from origin code
+	/*Card c;
+	  
     c = a_deck.GetCard(); // dealern tar ett kort
     c.Show(true);			// dealern visar sitt kort
     a_player.DealCard(c);	// spelaren får ett kort
@@ -24,7 +35,7 @@ class AmericanNewGameStrategy implements INewGameStrategy {	// dealern och spela
 
     c = a_deck.GetCard();	// dealern tar ett kort
     c.Show(false);			// dealern visar INTE sitt kort
-    a_dealer.DealCard(c);	// spelaren får ett kort
+    a_dealer.DealCard(c);	// spelaren får ett kort */
 
     return true;
   }

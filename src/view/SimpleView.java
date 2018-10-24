@@ -28,11 +28,13 @@ public class SimpleView extends View implements IView
         public void DisplayCard(model.Card a_card) // hämtar värderna och färgerna från Card klassen
         {
             System.out.println("" + a_card.GetValue() + " of " + a_card.GetColor());
+           
         }
 
         public void DisplayPlayerHand(Iterable<model.Card> a_hand, int a_score)
         {
             DisplayHand("Player", a_hand, a_score);
+         
         }
 
         public void DisplayDealerHand(Iterable<model.Card> a_hand, int a_score)
@@ -46,9 +48,11 @@ public class SimpleView extends View implements IView
             for(model.Card c : a_hand)
             {
                 DisplayCard(c);
+                
             }
             System.out.println("Score: " + a_score);
             System.out.println("");
+            
         }
 
         public void DisplayGameOver(boolean a_dealerIsWinner)

@@ -40,6 +40,7 @@ public class SwedishView extends View implements IView
                 String values[] =  // skapar en array med värden
                     { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio", "knekt", "dam", "kung", "ess" }; 
                 System.out.println("" + colors[a_card.GetColor().ordinal()] + " " + values[a_card.GetValue().ordinal()]);
+           
             }
         }
         public void DisplayPlayerHand(Iterable<model.Card> a_hand, int a_score)

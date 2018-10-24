@@ -21,30 +21,35 @@ public class Dealer extends Player {
     }    */
   }
   
-  public boolean NewGame(Player a_player) {
+  protected boolean NewGame(Player a_player) { //NÄR MAN VÄLJER NY GAME SÅ SKA PLAYER FÅ SITT FÖRSTA KORT FÖRST
     if (m_deck == null || IsGameOver()) {
       m_deck = new Deck();
       ClearHand();
       a_player.ClearHand();
-      return m_newGameRule.NewGame(m_deck, this, a_player);   
+      return m_newGameRule.NewGame(this, a_player);   
     }
     return false;
   }
 
-  public boolean Hit(Player a_player) {
+  protected boolean Hit(Player a_player) {
 	  // dealer ska hit om deck inte är null och handpoängen är under maxscore och inte gameover
     if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver()) {
-      Card c;
+    		
+    //Removed from origin code 
+      /*Card c;
       c = m_deck.GetCard();
       c.Show(true);
-      a_player.DealCard(c);
-      
+      a_player.DealCard(c);*/  
+    	
+    // Added by me (duplicated code, point 5 in changes.txt)
+      getCardAndGiveToPlayer(a_player, true);
       return true;
     }
     return false;
   }
-  // Method added by me (efter försök att tolka sekvensdiagrammet)
-  public boolean Stand(){
+  
+  // Method added by me (interpretation of the sequence diagram, point 1 in changes.txt)
+  protected boolean Stand(){
 	  if(m_deck != null){
 		  ShowHand();
 		  for(Card c : GetHand()){
@@ -52,16 +57,21 @@ public class Dealer extends Player {
 		  }
 		  while(m_hitRule.DoHit(this)){
 			  m_hitRule.DoHit(this);
-			  Card c = m_deck.GetCard();
+			  
+			  //Removed from code
+			  /*Card c = m_deck.GetCard();
 			  c.Show(true);
-			  DealCard(c);
+			  DealCard(c);*/
+			  
+			  // Added by me (duplicated code, point 5 in changes.txt)
+			  getCardAndGiveToPlayer(this, true);
 		  }
 		  return true;  
 	  }
 	  return false;
   }
 
-  public boolean IsDealerWinner(Player a_player) {
+  protected boolean IsDealerWinner(Player a_player) {
 	//om player får över 21 (maxscore) så vinner dealer
     if (a_player.CalcScore() > g_maxScore) {
       return true;
@@ -74,15 +84,23 @@ public class Dealer extends Player {
     // Removed from origin code
     //return CalcScore() >= a_player.CalcScore();
     
-    // Added by me
+    // Added by me (variable rule, point 4 in changes.txt)
     return m_winsGameRule.IsDealerWinner(a_player, this);
   }
 
-  public boolean IsGameOver() {
+  protected boolean IsGameOver() {
     if (m_deck != null && m_hitRule.DoHit(this) != true) {
         return true;
     }
     return false;
+  }
+  
+  //Method added by me (duplicated code, point 5 in changes.txt)
+  public void getCardAndGiveToPlayer(Player playerOrDealer, boolean visable){
+	  Card c = m_deck.GetCard();
+	  c.Show(visable);
+	  playerOrDealer.DealCard(c);
+	 
   }
   
 }

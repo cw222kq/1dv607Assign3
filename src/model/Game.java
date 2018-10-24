@@ -9,7 +9,7 @@ public class Game { // jag tror att den här klassen fungerar som en facade för p
   public Game()
   {
     m_dealer = new Dealer(new model.rules.RulesFactory()); //skapar upp en ny instans av rulesfactory dependency injection
-    m_player = new Player();
+    m_player = new Player(); 
   }
     
     
@@ -33,7 +33,7 @@ public class Game { // jag tror att den här klassen fungerar som en facade för p
     return m_dealer.Hit(m_player);
   }
  
-  // Added by me
+  //Method added by me (interpretation of the sequence diagram, point 1 in changes.txt)
   public boolean Stand()
   {
     return m_dealer.Stand();
@@ -57,6 +57,12 @@ public class Game { // jag tror att den här klassen fungerar som en facade för p
   public int GetPlayerScore()
   {
     return m_player.CalcScore();
+  }
+  
+  //Added by me (Observer-pattern, point 6 in changes.txt)
+  public void AddSubscriber(IGetCardsObserver a_sub){
+	  m_player.AddSubscriber(a_sub);
+	  m_dealer.AddSubscriber(a_sub);
   }
     
   

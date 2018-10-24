@@ -11,6 +11,7 @@ public class RulesFactory { // pratar om detta L:10 Part 1 ~19:30
     return new AmericanNewGameStrategy();
     //return new InternationalNewGameStrategy();
   }
+  // Method added by me (variable rule, point 4 in changes.txt)
   public IWinsGameStrategy GetWinsGameRule() {
 	//return new PlayerWinsGameStrategy();
 	return new DealerWinsGameStrategy();
