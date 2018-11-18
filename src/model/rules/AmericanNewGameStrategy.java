@@ -3,7 +3,7 @@ package model.rules;
 import model.Dealer;
 import model.Player;
  
-class AmericanNewGameStrategy implements INewGameStrategy {	// dealern och spelaren får ett extra kort. sista kortet för dealern är dolt
+class AmericanNewGameStrategy implements INewGameStrategy {
 
   public boolean NewGame(Dealer a_dealer, Player a_player) { //Removed the Deck argument	
     
@@ -21,21 +21,21 @@ class AmericanNewGameStrategy implements INewGameStrategy {	// dealern och spela
     // Removed from origin code
 	/*Card c;
 	  
-    c = a_deck.GetCard(); // dealern tar ett kort
-    c.Show(true);			// dealern visar sitt kort
-    a_player.DealCard(c);	// spelaren får ett kort
+    c = a_deck.GetCard(); 
+    c.Show(true);			
+    a_player.DealCard(c);	
 
-    c = a_deck.GetCard();	// dealern tar ett kort
-    c.Show(true);			// dealern visar sitt kort
-    a_dealer.DealCard(c);	//spelaren får ett kort
+    c = a_deck.GetCard();	
+    c.Show(true);			
+    a_dealer.DealCard(c);	
 
-    c = a_deck.GetCard();	// dealern tar ett kort
-    c.Show(true);			// dealern visar sitt kort
-    a_player.DealCard(c);	// spelaren får ett kort
+    c = a_deck.GetCard();	
+    c.Show(true);			
+    a_player.DealCard(c);	
 
-    c = a_deck.GetCard();	// dealern tar ett kort
-    c.Show(false);			// dealern visar INTE sitt kort
-    a_dealer.DealCard(c);	// spelaren får ett kort */
+    c = a_deck.GetCard();	
+    c.Show(false);			
+    a_dealer.DealCard(c);*/
 
     return true;
   }

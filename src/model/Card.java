@@ -38,15 +38,15 @@ public class Card {
     m_color = a_color;
     m_isHidden = true;
   }
-  // gettar color om den inte är hidden
-  public Color GetColor() { // varje gång getColor publiserats ska vi ha en paus
+
+  public Color GetColor() { 
       if (m_isHidden)
       {
           return Color.Hidden;
       }
       return m_color;
   }
- // gettar value om den inte är hidden
+
   public Value GetValue() {
       if (m_isHidden)
       {

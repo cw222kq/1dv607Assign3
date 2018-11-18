@@ -11,7 +11,7 @@ public class SwedishView extends View implements IView
             System.out.println("----------------------");
             System.out.println("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n"); 
         }
-        // Those methods are the same in both simpleview and swedishview which indicate that I can use inherit instead
+        // This method is the same in both simpleview and swedishview which indicate that I can use inheritance instead
   		//Removed from origin code 
        /* public int GetInput()
         {
@@ -27,7 +27,7 @@ public class SwedishView extends View implements IView
           }
         }*/
         
-        public void DisplayCard(model.Card a_card) // denna metod är den enda som skiljer sig i mer än språket pga att vi skapar två arrayer här i simpleview använder vi oss av dem skapade korten i cardklassen
+        public void DisplayCard(model.Card a_card) 
         {
             if (a_card.GetColor() == model.Card.Color.Hidden)
             {
@@ -35,9 +35,9 @@ public class SwedishView extends View implements IView
             }
             else
             {
-                String colors[] = // skapar en array  med färger
+                String colors[] = 
                     { "Hjärter", "Spader", "Ruter", "Klöver" }; 
-                String values[] =  // skapar en array med värden
+                String values[] =  
                     { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio", "knekt", "dam", "kung", "ess" }; 
                 System.out.println("" + colors[a_card.GetColor().ordinal()] + " " + values[a_card.GetValue().ordinal()]);
            

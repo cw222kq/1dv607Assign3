@@ -1,16 +1,17 @@
 package model.rules;
 
-public class RulesFactory { // pratar om detta L:10 Part 1 ~19:30
+public class RulesFactory { 
 
   public IHitStrategy GetHitRule() {
     //return new BasicHitStrategy();
     return new Soft17HitStrategy();
   }
-// return typen ändras beroende på vilken game strategy typ man kör
+  
   public INewGameStrategy GetNewGameRule() {
-    return new AmericanNewGameStrategy();
-    //return new InternationalNewGameStrategy();
+    //return new AmericanNewGameStrategy();
+    return new InternationalNewGameStrategy();
   }
+  
   // Method added by me (variable rule, point 4 in changes.txt)
   public IWinsGameStrategy GetWinsGameRule() {
 	//return new PlayerWinsGameStrategy();

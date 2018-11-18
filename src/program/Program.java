@@ -11,11 +11,18 @@ public class Program
   {
   
     Game g = new Game();
-    IView v = new SimpleView(); //new SwedishView(); Kolla L:10 del 1 ~21:23
+    IView v = new SimpleView(); //new SwedishView(); 
+    
+    //Removed from origin code
     //PlayGame ctrl = new PlayGame();
+    
+    //Added by me (Observer-pattern, point 6 in changes.txt)
     PlayGame ctrl = new PlayGame(v,g);
     
+    //Removed from origin code
     //while (ctrl.Play(g, v));
+    
+    //Added by me (Observer-pattern, point 6 in changes.txt)
     while (ctrl.Play());
   }
 }

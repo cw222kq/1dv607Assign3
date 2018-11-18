@@ -15,13 +15,13 @@ public class Dealer extends Player {
     m_hitRule = a_rulesFactory.GetHitRule();
     m_winsGameRule = a_rulesFactory.GetWinsGameRule();
     
-    /*for(Card c : m_deck.GetCards()) { BORT KOMMENTERAT AV DEM I ORGINALVERSIONEN
+    /*for(Card c : m_deck.GetCards()) {
       c.Show(true);
       System.out.println("" + c.GetValue() + " of " + c.GetColor());
     }    */
   }
   
-  protected boolean NewGame(Player a_player) { //NÄR MAN VÄLJER NY GAME SÅ SKA PLAYER FÅ SITT FÖRSTA KORT FÖRST
+  protected boolean NewGame(Player a_player) { 
     if (m_deck == null || IsGameOver()) {
       m_deck = new Deck();
       ClearHand();
@@ -32,7 +32,6 @@ public class Dealer extends Player {
   }
 
   protected boolean Hit(Player a_player) {
-	  // dealer ska hit om deck inte är null och handpoängen är under maxscore och inte gameover
     if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver()) {
     		
     //Removed from origin code 
@@ -72,15 +71,11 @@ public class Dealer extends Player {
   }
 
   protected boolean IsDealerWinner(Player a_player) {
-	//om player får över 21 (maxscore) så vinner dealer
     if (a_player.CalcScore() > g_maxScore) {
       return true;
-    // om dealer får över 21 (maxscore) så förlorar dealar 
     } else if (CalcScore() > g_maxScore) {
       return false;
-    }
-    // dealer vinner om han får över eller lika med player
-    
+    } 
     // Removed from origin code
     //return CalcScore() >= a_player.CalcScore();
     
@@ -96,9 +91,9 @@ public class Dealer extends Player {
   }
   
   //Method added by me (duplicated code, point 5 in changes.txt)
-  public void getCardAndGiveToPlayer(Player playerOrDealer, boolean visable){
+  public void getCardAndGiveToPlayer(Player playerOrDealer, boolean visible){
 	  Card c = m_deck.GetCard();
-	  c.Show(visable);
+	  c.Show(visible);
 	  playerOrDealer.DealCard(c);
 	 
   }

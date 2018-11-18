@@ -9,7 +9,7 @@ public class SimpleView extends View implements IView
           System.out.println("Hello Black Jack World");
           System.out.println("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
         }
-  		// Those methods are the same in both simpleview and swedishview which indicate that I can use inherit instead
+  		// This method is the same in both simpleview and swedishview which indicate that I can use inheritance instead
   		//Removed from origin code
      /*   public int GetInput()
         {
@@ -25,7 +25,7 @@ public class SimpleView extends View implements IView
           }
         }*/
 
-        public void DisplayCard(model.Card a_card) // hämtar värderna och färgerna från Card klassen
+        public void DisplayCard(model.Card a_card) 
         {
             System.out.println("" + a_card.GetValue() + " of " + a_card.GetColor());
            

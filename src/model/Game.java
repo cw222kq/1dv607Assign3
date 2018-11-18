@@ -1,18 +1,16 @@
 package model;
 
-public class Game { // jag tror att den här klassen fungerar som en facade för player och dealer för att controllern ska 
-	// slippa ha två beroenden (en till player och en till dealer) Därför kapslar denna facade in player och dealer mer
+public class Game { 
 
   private Dealer m_dealer;
   private Player m_player;
 
   public Game()
   {
-    m_dealer = new Dealer(new model.rules.RulesFactory()); //skapar upp en ny instans av rulesfactory dependency injection
+    m_dealer = new Dealer(new model.rules.RulesFactory()); 
     m_player = new Player(); 
   }
-    
-    
+     
   public boolean IsGameOver()
   {
     return m_dealer.IsGameOver();
@@ -33,7 +31,7 @@ public class Game { // jag tror att den här klassen fungerar som en facade för p
     return m_dealer.Hit(m_player);
   }
  
-  //Method added by me (interpretation of the sequence diagram, point 1 in changes.txt)
+  // Method added by me (interpretation of the sequence diagram, point 1 in changes.txt)
   public boolean Stand()
   {
     return m_dealer.Stand();
@@ -59,7 +57,7 @@ public class Game { // jag tror att den här klassen fungerar som en facade för p
     return m_player.CalcScore();
   }
   
-  //Added by me (Observer-pattern, point 6 in changes.txt)
+  // Method added by me (Observer-pattern, point 6 in changes.txt)
   public void AddSubscriber(IGetCardsObserver a_sub){
 	  m_player.AddSubscriber(a_sub);
 	  m_dealer.AddSubscriber(a_sub);
